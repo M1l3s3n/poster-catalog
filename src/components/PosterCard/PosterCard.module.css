@@ -1,9 +1,9 @@
 .card {
   background: #1a1a1a;
-  padding: 16px;
-  border-radius: 8px;
-  transition: transform 0.2s ease;
+  padding: clamp(0.75rem, 1.5vw, 1rem);
+  border-radius: 0.75rem;
   border: 1px solid #222;
+  transition: transform 0.2s ease;
 }
 
 .card:hover {
@@ -11,8 +11,8 @@
 }
 
 .imagePlaceholder {
-  height: 180px;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* або 4/3, або 3/4 якщо “постер” */
   background: #333;
-  border-radius: 6px;
-  margin-bottom: 12px;
+  border-radius: inherit; /* або 0.5rem */
 }

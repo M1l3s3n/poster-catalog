@@ -1,7 +1,13 @@
 .footer {
-  padding: 4vh;
+  flex-shrink: 0;
+  padding: 3vh;
   text-align: center;
   background: #111;
   color: #888;
   border-top: 1px solid #222;
+}
+
+.copyright {
+  font-size: 1.7vh;
+  font-weight: 600;
 }

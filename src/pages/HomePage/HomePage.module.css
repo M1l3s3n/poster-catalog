@@ -1,12 +1,13 @@
 .main {
-  padding: 40px;
+  padding: 4vh;
   background: #0f0f0f;
-  min-height: 100vh;
+  /* min-height: auto; */
+  flex: 1 0 auto;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: clamp(0.75rem, 2.4vw, 1.5rem);
   align-items: start;
 }
