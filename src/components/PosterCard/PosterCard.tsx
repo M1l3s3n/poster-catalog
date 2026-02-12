@@ -17,6 +17,7 @@ export function PosterCard({ poster, selected = false, onSelect }: Props) {
 
   return (
     <button
+      data-testid="poster-card"
       type="button"
       className={`${styles.card} ${selected ? styles.selected : ""}`}
       onClick={onSelect}
