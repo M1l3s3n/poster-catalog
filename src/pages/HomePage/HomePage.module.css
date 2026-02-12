@@ -1,5 +1,6 @@
 .main {
   background: #0f0f0f;
+  flex: 1;
   padding: 24px;
 }
 
@@ -15,6 +16,7 @@
   position: sticky;
   top: 24px;
   height: fit-content;
+  min-height: calc(100vh - 120px);
   max-height: calc(100vh - 48px);
   overflow-y: auto;
   border-radius: 14px;
@@ -23,21 +25,34 @@
 }
 
 .list {
+  height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.listScroll {
+  flex: 1;
   overflow-y: auto;
-  max-height: calc(100vh - 14vh);
-  scrollbar-gutter: stable;
+  padding-right: 8px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(clamp(260px, 17vw, 290px), 1fr)
+    minmax(clamp(240px, 16.5vw, 300px), 1fr)
   );
   gap: 20px;
   padding: 8px 0;
+}
+
+.empty {
+  color: #b0b0b0;
+  border: 1px dashed #333;
+  border-radius: 12px;
+  padding: 16px;
 }
 
 @media (max-width: 900px) {
