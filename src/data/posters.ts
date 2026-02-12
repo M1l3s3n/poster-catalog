@@ -20,7 +20,7 @@ export type Poster = {
   weightGrams: number;
 
   stock: number;
-  rating: number; // 0..5
+  rating: number;
   reviewsCount: number;
 
   thumbnail: string;
