@@ -27,8 +27,6 @@ export function HomePage() {
     return filtered.find((p) => p.id === selectedId) ?? filtered[0];
   }, [filtered, selectedId]);
 
-  // якщо фільтр відсіяв вибраний постер — підлаштуй selectedId
-  // (не обов’язково, але це “професійно”)
   const safeSelectedId = selected?.id ?? 0;
 
   return (
