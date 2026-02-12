@@ -29,6 +29,7 @@ export function CatalogControls({
           className={styles.input}
           value={query}
           onChange={(e) => onQueryChange(e.target.value)}
+          data-testid="search-input"
           placeholder="Type poster name..."
         />
       </div>
@@ -38,6 +39,7 @@ export function CatalogControls({
           Category
         </label>
         <select
+          data-testid="category-select"
           id="category"
           className={styles.select}
           value={category ?? ""}

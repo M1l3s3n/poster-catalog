@@ -13,3 +13,7 @@ export function filterByCategory(
   if (!category) return items;
   return items.filter((p) => p.category === category);
 }
+
+export function mapPosters<T>(items: Poster[], mapper: (p: Poster) => T): T[] {
+  return items.map(mapper);
+}
