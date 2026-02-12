@@ -1,6 +1,7 @@
 .card {
   text-align: left;
   width: 100%;
+  max-width: 17.3vw;
   background: #1a1a1a;
   padding: 14px;
   border-radius: 12px;
@@ -28,7 +29,8 @@
 
 .thumb {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 37.8vh;
+  /* aspect-ratio: 3 / 4; */
   background: #333;
   border-radius: 10px;
 }
