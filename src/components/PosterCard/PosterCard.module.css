@@ -1,18 +1,112 @@
 .card {
+  text-align: left;
+  width: 100%;
   background: #1a1a1a;
-  padding: clamp(0.75rem, 1.5vw, 1rem);
-  border-radius: 0.75rem;
+  padding: 14px;
+  border-radius: 12px;
   border: 1px solid #222;
-  transition: transform 0.2s ease;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
+  border-color: #333;
 }
 
-.imagePlaceholder {
+.selected {
+  border-color: #6b6b6b;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+}
+
+.media {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.thumb {
   width: 100%;
-  aspect-ratio: 3 / 4; /* або 4/3, або 3/4 якщо “постер” */
+  aspect-ratio: 3 / 4;
   background: #333;
-  border-radius: inherit; /* або 0.5rem */
+  border-radius: 10px;
+}
+
+.badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #444;
+  background: rgba(0, 0, 0, 0.35);
+  color: #f0f0f0;
+  backdrop-filter: blur(6px);
+}
+
+.discount {
+  border-color: #666;
+}
+
+.out {
+  border-color: #666;
+  opacity: 0.9;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.price {
+  color: #fff;
+  font-weight: 650;
+}
+
+.oldPrice {
+  color: #9a9a9a;
+  text-decoration: line-through;
+  font-size: 0.9rem;
+}
+
+.rating {
+  color: #cfcfcf;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.small {
+  margin: 0;
+  color: #b0b0b0;
+  font-size: 0.92rem;
+  line-height: 1.35;
 }
