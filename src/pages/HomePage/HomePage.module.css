@@ -1,63 +1,61 @@
 .main {
+  min-height: calc(100vh - 89px);
   background: #0f0f0f;
-  flex: 1;
   padding: 24px;
+  box-sizing: border-box;
 }
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(420px, 1.15fr) minmax(360px, 0.85fr);
   gap: 24px;
-  max-width: 74vw;
+  max-width: 1340px;
   margin: 0 auto;
+  align-items: start;
 }
 
 .details {
   position: sticky;
-  top: 24px;
+  top: 0;
+  align-self: start;
   height: fit-content;
-  min-height: calc(100vh - 120px);
-  max-height: calc(100vh - 48px);
+  max-height: 100%;
   overflow-y: auto;
   border-radius: 14px;
-  border: 1px solid #222;
-  -webkit-overflow-scrolling: touch;
+  min-height: 0;
+  border: none;
 }
 
 .list {
-  height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  overflow: hidden;
+  min-height: 0;
 }
 
 .listScroll {
-  flex: 1;
   overflow-y: auto;
+  max-height: calc(100vh - 288px);
   padding-right: 8px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(clamp(240px, 16.5vw, 300px), 1fr)
-  );
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
   padding: 8px 0;
 }
 
-.empty {
-  color: #b0b0b0;
-  border: 1px dashed #333;
-  border-radius: 12px;
-  padding: 16px;
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
+    height: auto;
   }
 
   .details {
@@ -72,11 +70,8 @@
     padding-right: 0;
   }
 
-  .grid {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(clamp(220px, 45vw, 280px), 1fr)
-    );
+  .listScroll {
+    overflow: visible;
   }
 }
 
