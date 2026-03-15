@@ -1,3 +1,5 @@
+[![CI/CD Pipeline](https://github.com/M1l3s3n/poster-catalog/actions/workflows/main.yml/badge.svg)](https://github.com/M1l3s3n/poster-catalog/actions/workflows/main.yml)
+
 # Poster-Catalog
 
 Frontend application developed for the "IT-Projects" course.
