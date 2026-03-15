@@ -7,6 +7,8 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
+    include: ["src/**/*.test.ts"],
+    exclude: ["tests/**", "node_modules/**"],
     coverage: {
       provider: "v8",
       reporter: ["text", "html"],
