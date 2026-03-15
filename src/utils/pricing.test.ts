@@ -15,4 +15,16 @@ describe("getDiscountedPrice", () => {
     expect(getDiscountedPrice(25, 0)).toBe(25);
     expect(getDiscountedPrice(25, -10)).toBe(25);
   });
+
+  it("returns zero when price is zero", () => {
+    expect(getDiscountedPrice(0, 10)).toBe(0);
+  });
+
+  it("handles 100 percent discount", () => {
+    expect(getDiscountedPrice(25, 100)).toBe(0);
+  });
+
+  it("rounds repeating decimal results correctly", () => {
+    expect(getDiscountedPrice(10, 33)).toBe(6.7);
+  });
 });
