@@ -1,5 +1,6 @@
 import styles from "./PosterDetails.module.css";
 import type { Poster } from "../../data/posters";
+import { useFeatureFlagEnabled } from "posthog-js/react";
 import { getDiscountedPrice } from "../../utils/pricing";
 
 type Props = { poster: Poster };
@@ -10,6 +11,8 @@ export function PosterDetails({ poster }: Props) {
     poster.discountPercentage,
   );
   const hasDiscount = finalPrice !== poster.price;
+
+  const showFeaturedBadge = useFeatureFlagEnabled("show-featured-badge");
 
   return (
     <div className={styles.panel}>
@@ -24,7 +27,7 @@ export function PosterDetails({ poster }: Props) {
       <div className={styles.content}>
         <div className={styles.topRow}>
           <h2 className={styles.title}>{poster.title}</h2>
-          {poster.isFeatured ? (
+          {poster.isFeatured && showFeaturedBadge ? (
             <span className={styles.featured}>Featured</span>
           ) : null}
         </div>

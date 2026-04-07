@@ -1,5 +1,6 @@
 import styles from "./CatalogControls.module.css";
 import type { PosterCategory } from "../../data/posters";
+import posthog from "posthog-js";
 
 type Props = {
   query: string;
@@ -18,6 +19,35 @@ export function CatalogControls({
   onCategoryChange,
   onClear,
 }: Props) {
+  const handleQueryChange = (value: string) => {
+    onQueryChange(value);
+
+    if (value.trim().length >= 2) {
+      posthog.capture("search_used", {
+        query: value,
+        query_length: value.trim().length,
+      });
+    }
+  };
+
+  const handleCategoryChange = (value?: PosterCategory) => {
+    onCategoryChange(value);
+
+    posthog.capture("filter_used", {
+      filter_type: "category",
+      filter_value: value ?? "all",
+    });
+  };
+
+  const handleClear = () => {
+    onClear();
+
+    posthog.capture("catalog_cleared", {
+      cleared_query: Boolean(query),
+      cleared_category: Boolean(category),
+    });
+  };
+
   return (
     <div className={styles.bar}>
       <div className={styles.field}>
@@ -28,7 +58,7 @@ export function CatalogControls({
           id="search"
           className={styles.input}
           value={query}
-          onChange={(e) => onQueryChange(e.target.value)}
+          onChange={(e) => handleQueryChange(e.target.value)}
           data-testid="search-input"
           placeholder="Type poster name..."
         />
@@ -44,7 +74,7 @@ export function CatalogControls({
           className={styles.select}
           value={category ?? ""}
           onChange={(e) =>
-            onCategoryChange(
+            handleCategoryChange(
               e.target.value ? (e.target.value as PosterCategory) : undefined,
             )
           }
@@ -56,7 +86,7 @@ export function CatalogControls({
         </select>
       </div>
 
-      <button type="button" className={styles.clear} onClick={onClear}>
+      <button type="button" className={styles.clear} onClick={handleClear}>
         Clear
       </button>
     </div>

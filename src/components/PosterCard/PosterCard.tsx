@@ -1,6 +1,8 @@
 import styles from "./PosterCard.module.css";
 import type { Poster } from "../../data/posters";
 import { getDiscountedPrice } from "../../utils/pricing";
+import posthog from "posthog-js";
+import { useEffect, useState } from "react";
 
 type Props = {
   poster: Poster;
@@ -14,13 +16,36 @@ export function PosterCard({ poster, selected = false, onSelect }: Props) {
     poster.discountPercentage,
   );
   const hasDiscount = finalPrice !== poster.price;
+  const [showFeaturedBadge, setShowFeaturedBadge] = useState(false);
+
+  useEffect(() => {
+    posthog.onFeatureFlags(() => {
+      setShowFeaturedBadge(!!posthog.isFeatureEnabled("show-featured-badge"));
+    });
+  }, []);
+
+  const handleClick = () => {
+    posthog.capture("poster_clicked", {
+      poster_id: poster.id,
+      poster_title: poster.title,
+      category: poster.category,
+      price: poster.price,
+      final_price: finalPrice,
+      has_discount: hasDiscount,
+      is_featured: poster.isFeatured,
+      stock: poster.stock,
+      rating: poster.rating,
+    });
+
+    onSelect?.();
+  };
 
   return (
     <button
       data-testid="poster-card"
       type="button"
       className={`${styles.card} ${selected ? styles.selected : ""}`}
-      onClick={onSelect}
+      onClick={handleClick}
     >
       <div className={styles.media}>
         <img
@@ -29,7 +54,7 @@ export function PosterCard({ poster, selected = false, onSelect }: Props) {
           className={styles.thumb}
         />
         <div className={styles.badges}>
-          {poster.isFeatured ? (
+          {poster.isFeatured && showFeaturedBadge ? (
             <span className={styles.badge}>Featured</span>
           ) : null}
           {hasDiscount ? (
