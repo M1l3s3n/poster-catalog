@@ -25,13 +25,15 @@
 .media {
   position: relative;
   margin-bottom: 12px;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
 }
 
 .thumb {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  background: #333;
-  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .badges {

@@ -14,7 +14,11 @@ export function PosterDetails({ poster }: Props) {
   return (
     <div className={styles.panel}>
       <div className={styles.previewWrapper}>
-        <div className={styles.preview} />
+        <img
+          src={poster.images[0]}
+          alt={poster.title}
+          className={styles.preview}
+        />
       </div>
 
       <div className={styles.content}>

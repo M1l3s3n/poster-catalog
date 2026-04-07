@@ -22,7 +22,6 @@
 .preview {
   width: min(100%, 360px);
   aspect-ratio: 3 / 4;
-  height: auto;
   background: #2b2b2b;
   border-radius: 12px;
   overflow: hidden;

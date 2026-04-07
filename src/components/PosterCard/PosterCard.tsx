@@ -23,7 +23,11 @@ export function PosterCard({ poster, selected = false, onSelect }: Props) {
       onClick={onSelect}
     >
       <div className={styles.media}>
-        <div className={styles.thumb} />
+        <img
+          src={poster.thumbnail}
+          alt={poster.title}
+          className={styles.thumb}
+        />
         <div className={styles.badges}>
           {poster.isFeatured ? (
             <span className={styles.badge}>Featured</span>
