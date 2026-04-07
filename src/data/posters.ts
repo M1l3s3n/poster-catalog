@@ -48,8 +48,11 @@ export const posters: Poster[] = [
     stock: 12,
     rating: 4.6,
     reviewsCount: 38,
-    thumbnail: "/images/dark-castle-thumb.jpg",
-    images: ["/images/dark-castle-1.jpg", "/images/dark-castle-2.jpg"],
+    thumbnail:
+      "https://i.etsystatic.com/39406221/r/il/744948/4610770583/il_1080xN.4610770583_4zdp.jpg",
+    images: [
+      "https://i.etsystatic.com/39406221/r/il/744948/4610770583/il_1080xN.4610770583_4zdp.jpg",
+    ],
     createdAt: "2024-01-12",
     isFeatured: true,
   },
@@ -69,8 +72,8 @@ export const posters: Poster[] = [
     stock: 8,
     rating: 4.2,
     reviewsCount: 21,
-    thumbnail: "/images/neon-city-thumb.jpg",
-    images: ["/images/neon-city-1.jpg"],
+    thumbnail: "https://cdng.europosters.eu/pod_public/1300/148188.jpg",
+    images: ["https://cdng.europosters.eu/pod_public/1300/148188.jpg"],
     createdAt: "2024-03-02",
     isFeatured: false,
   },
@@ -90,8 +93,11 @@ export const posters: Poster[] = [
     stock: 20,
     rating: 4.8,
     reviewsCount: 52,
-    thumbnail: "/images/old-woods-thumb.jpg",
-    images: ["/images/old-woods-1.jpg"],
+    thumbnail:
+      "https://st2.depositphotos.com/33669834/42762/i/450/depositphotos_427624884-stock-photo-magical-old-tree-fog-amazing.jpg",
+    images: [
+      "https://st2.depositphotos.com/33669834/42762/i/450/depositphotos_427624884-stock-photo-magical-old-tree-fog-amazing.jpg",
+    ],
     createdAt: "2024-02-10",
     isFeatured: true,
   },
