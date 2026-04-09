@@ -6,7 +6,6 @@ type Props = {
 
 export function Header({ onBreakWorld }: Props) {
   const appStatus = import.meta.env.VITE_APP_STATUS;
-  const isProduction = !import.meta.env.DEV;
 
   return (
     <header className={styles.header}>
@@ -15,17 +14,15 @@ export function Header({ onBreakWorld }: Props) {
       <div className={styles.right}>
         <div className={styles.status}>{appStatus}</div>
 
-        {isProduction && (
-          <button
-            type="button"
-            className={styles.breakButton}
-            onClick={onBreakWorld}
-            title="Break the world"
-            aria-label="Break the world"
-          >
-            !
-          </button>
-        )}
+        <button
+          type="button"
+          className={styles.breakButton}
+          onClick={onBreakWorld}
+          title="Break the world"
+          aria-label="Break the world"
+        >
+          !
+        </button>
       </div>
     </header>
   );
