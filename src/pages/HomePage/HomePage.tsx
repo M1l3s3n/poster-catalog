@@ -29,9 +29,14 @@ export function HomePage() {
 
   const safeSelectedId = selected?.id ?? 0;
 
+  const handleBreakWorld = () => {
+    throw new Error("Sentry Test Error: Break the world button clicked");
+  };
+
   return (
     <>
-      <Header />
+      <Header onBreakWorld={handleBreakWorld} />
+
       <main className={styles.main}>
         <div className={styles.layout}>
           <section className={styles.details}>
