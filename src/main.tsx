@@ -7,6 +7,7 @@ import App from "./App.tsx";
 
 Sentry.init({
   dsn: import.meta.env.VITE_PUBLIC_SENTRY_DSN,
+  enabled: true,
   integrations: [
     Sentry.browserTracingIntegration(),
     Sentry.replayIntegration(),
@@ -15,6 +16,10 @@ Sentry.init({
   replaysSessionSampleRate: 1.0,
   replaysOnErrorSampleRate: 1.0,
   environment: import.meta.env.DEV ? "development" : "production",
+  beforeSend(event) {
+    console.log("Sentry event:", event);
+    return event;
+  },
 });
 
 Sentry.setUser({
