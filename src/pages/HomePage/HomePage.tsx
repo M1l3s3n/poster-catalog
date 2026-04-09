@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import * as Sentry from "@sentry/react";
 import styles from "./HomePage.module.css";
 import { posters } from "../../data/posters";
 import type { PosterCategory } from "../../data/posters";
@@ -30,7 +31,10 @@ export function HomePage() {
   const safeSelectedId = selected?.id ?? 0;
 
   const handleBreakWorld = () => {
-    throw new Error("Sentry Test Error: Break the world button clicked");
+    const error = new Error(
+      "Sentry Test Error: Break the world button clicked",
+    );
+    Sentry.captureException(error);
   };
 
   return (
